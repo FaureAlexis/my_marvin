@@ -33,7 +33,6 @@ jenkins:
               - "Job/Move"
               - "Job/Create"
               - "Job/Cancel"
-              - "Build/Cancel"
               - "View/Read"
             assignments:
               - "vaugie_g"
@@ -42,8 +41,6 @@ jenkins:
             pattern: ".*"
             permissions:
               - "Overall/Read"
-              - "Job/View"
-              - "Workspace/View"
             assignments:
               - "nasso"
   securityRealm:

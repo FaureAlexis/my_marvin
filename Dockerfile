@@ -7,5 +7,7 @@ COPY plugins.txt /var/jenkins_home/plugins.txt
 
 RUN jenkins-plugin-cli --plugin-file /var/jenkins_home/plugins.txt
 
+RUN /bin/sh apt-get install make
+
 COPY my_marvin.yml /var/jenkins_home/config.yml
 COPY job_dsl.groovy /var/jenkins_home/job_dsl.groovy
