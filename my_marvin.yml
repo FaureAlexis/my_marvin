@@ -1,0 +1,104 @@
+jenkins:
+  system_message: "Welcome to the Chocolatine-Powered Marvin Jenkins Instance."
+  authorizationStrategy:
+    roleBased:
+      roles:
+        - name: "admin"
+          description: "Marvin master"
+          pattern: ".*"
+          permissions:
+            - "Overall/Administer"
+          assignedSIDs:
+            - "chocolateen"
+        - name: "ape"
+          description: "Pedagogical team member"
+          pattern: ".*"
+          permissions:
+            - "Overall/Read"
+            - "Job/Build"
+            - "Job/Read"
+            - "View/Read"
+          assignedSIDs:
+            - "i_dont_know"
+        - name: "gorilla"
+          description: "Group Obsessively Researching Innovation Linked to Learning and Accomplishment"
+          pattern: ".*"
+          permissions:
+            - "Overall/Read"
+            - "Job/Build"
+            - "Job/Configure"
+            - "Job/Read"
+            - "Job/Delete"
+            - "Job/Move"
+            - "Job/Create"
+            - "Job/Cancel"
+            - "Build/Cancel"
+            - "View/Read"
+          assignedSIDs:
+            - "vaugie_g"
+        - name: "assist"
+          description: "Assistants"
+          pattern: ".*"
+          permissions:
+            - "Overall/Read"
+            - "Job/View"
+            - "Workspace/View"
+          assignedSIDs:
+            - "nasso"
+  securityRealm:
+    local:
+      allowsSignup: false
+      enableCaptcha: false
+      users:
+      - id: "chocolateen"
+        name: "Hugo"
+        properties:
+        - "myView"
+        - preferredProvider:
+            providerId: "default"
+        - "timezone"
+        - mailer:
+            emailAddress: "hugo@epitech.eu"
+        - "apiToken"
+        - password: ${USER_CHOCOLATEEN_PASSWORD}
+      - id: "vaugie_g"
+        name: "Garance"
+        properties:
+        - "myView"
+        - preferredProvider:
+            providerId: "default"
+        - "timezone"
+        - mailer:
+            emailAddress: "garance@epitech.eu"
+        - "apiToken"
+        - password: ${USER_VAUGIE_G_PASSWORD}
+      - id: "i_dont_know"
+        name: "Jeremy"
+        properties:
+        - "myView"
+        - preferredProvider:
+            providerId: "default"
+        - "timezone"
+        - mailer:
+            emailAddress: "jeremy@epitech.eu"
+        - "apiToken"
+        - password: ${USER_I_DONT_KNOW_PASSWORD}
+      - id: "nasso"
+        name: "Nassim"
+        properties:
+        - "myView"
+        - preferredProvider:
+            providerId: "default"
+        - "timezone"
+        - mailer:
+            emailAddress: "nasso@epitech.eu"
+        - "apiToken"
+        - password: ${USER_NASSO_PASSWORD}
+  cloudbees-folder:
+    folders:
+      - name: "tools"
+        description: "Folder for miscellaneous tools."
+        displayName: "Tools"
+  job-dsl:
+    targets: 
+      -script: "job_dsl.groovy"
