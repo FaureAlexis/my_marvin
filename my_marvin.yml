@@ -18,7 +18,7 @@ jenkins:
               - "Overall/Read"
               - "Job/Build"
               - "Job/Read"
-              - "View/Read"
+              - "Job/Workspace"
             assignments:
               - "i_dont_know"
           - name: "gorilla"
@@ -32,15 +32,16 @@ jenkins:
               - "Job/Delete"
               - "Job/Move"
               - "Job/Create"
-              - "Job/Cancel"
-              - "View/Read"
+              - "Job/Workspace"
             assignments:
               - "vaugie_g"
           - name: "assist"
-            description: "Assistants"
+            description: "Assistant"
             pattern: ".*"
             permissions:
               - "Overall/Read"
+              - "Job/Read"
+              - "Job/Workspace"
             assignments:
               - "nasso"
   securityRealm:
